@@ -11,51 +11,52 @@ let menuItems = [
 
 const header = document.querySelector('.header')
  
-  // Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
-
-  // <div class="menu">
-  //   <ul>
-  //     {each menu item as an <li>}
-  //   </ul>
-  // </div>
-
-  // The 'menuMaker' takes an array of menu items as its only argument.
-  function menuMaker(arr){
-    // ! creating the placement
-    
-    const menu = document.createElement('div');
-      menu.classList.add('menu');
-    const orderList = document.createElement('ul');
-      orderList.classList.add('this-here')
-    
-    arr.forEach(element => {
-      const item = document.createElement('li')
-      item.textContent = element;
-      orderList.appendChild(item);
-    });
-    
-    const hamburger = document.querySelector('.menu-button');
-    
-    hamburger.addEventListener('click',  (evt) => {
-      menu.classList.toggle('menu--open');
-      menu.appendChild(orderList);
-      evt.stopPropagation();
-    })
-    document.addEventListener('click', evt => {
-      menu.classList.remove('menu--open')
-    })
-    hamburger.appendChild(menu)
-    //console.log(menu)
-    return menu;
-  }
+function menuMaker(arr){
+  // ! creating the placement
   
-  const yes = menuMaker(menuItems)
-  header.appendChild(yes)
-    
-    
+  const menu = document.createElement('div');
+    menu.classList.add('menu');
+  const orderList = document.createElement('ul');
+    //orderList.classList.add('this-here')
   
-  //console.log(menuItems)
+  arr.forEach(element => {
+    const item = document.createElement('li')
+    item.textContent = element;
+    orderList.appendChild(item);
+  });
+  
+  const hamburger = document.querySelector('.menu-button');
+  
+  hamburger.addEventListener('click',  (evt) => {
+    menu.classList.toggle('menu--open');
+    menu.appendChild(orderList);
+    evt.stopPropagation();
+  })
+  document.addEventListener('click', evt => {
+    menu.classList.remove('menu--open')
+  })
+  hamburger.appendChild(menu)
+  //console.log(menu)
+  return menu;
+}
 
+const yes = menuMaker(menuItems)
+header.appendChild(yes)
+
+//console.log(menuItems)
+
+
+
+
+// Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
+
+// <div class="menu">
+//   <ul>
+//     {each menu item as an <li>}
+//   </ul>
+// </div>
+
+// The 'menuMaker' takes an array of menu items as its only argument.
 
 
   // ! Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
