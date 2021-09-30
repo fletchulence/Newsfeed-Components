@@ -42,7 +42,7 @@ const header = document.querySelector('.header')
       evt.stopPropagation();
     })
     document.addEventListener('click', evt => {
-      menu.classList.toggle('menu--open')
+      menu.classList.remove('menu--open')
     })
     hamburger.appendChild(menu)
     //console.log(menu)
